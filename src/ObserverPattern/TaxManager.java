@@ -2,10 +2,10 @@ package ObserverPattern;
 
 import StrategyPattern.TaxStrategy;
 
-public class TaxStrategyManager {
+public class TaxManager {
     private TaxStrategy taxStrategy;
 
-    public TaxStrategyManager(TaxStrategy initialTaxStrategy) {
+    public TaxManager(TaxStrategy initialTaxStrategy) {
         this.taxStrategy = initialTaxStrategy;
     }
 

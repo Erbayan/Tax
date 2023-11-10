@@ -1,7 +1,7 @@
-package FacrotyPattern;
+package FactoryPattern;
 
 import StrategyPattern.TaxStrategy;
 
-public interface TaxStrategyFactory {
+public interface TaxFactory {
     TaxStrategy createTaxStrategy();
 }

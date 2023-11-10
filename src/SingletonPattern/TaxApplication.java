@@ -1,7 +1,7 @@
 package SingletonPattern;
 
 import ObserverPattern.TaxObserver;
-import ObserverPattern.TaxStrategyManager;
+import ObserverPattern.TaxManager;
 import StrategyPattern.PensionTaxStrategy;
 import StrategyPattern.TaxStrategy;
 
@@ -10,12 +10,12 @@ import java.util.List;
 
 public class TaxApplication {
     private static TaxApplication instance;
-    private TaxStrategyManager taxStrategyManager;
+    private TaxManager taxManager;
     private List<TaxObserver> taxObservers;
 
     private TaxApplication() {
         TaxStrategy initialTaxStrategy = new PensionTaxStrategy();
-        taxStrategyManager = new TaxStrategyManager(initialTaxStrategy);
+        taxManager = new TaxManager(initialTaxStrategy);
         taxObservers = new ArrayList<>();
     }
 
@@ -26,8 +26,8 @@ public class TaxApplication {
         return instance;
     }
 
-    public TaxStrategyManager getTaxStrategyManager() {
-        return taxStrategyManager;
+    public TaxManager getTaxStrategyManager() {
+        return taxManager;
     }
 
     public void addObserver(TaxObserver observer) {
@@ -39,7 +39,7 @@ public class TaxApplication {
     }
 
     public void notifyObservers() {
-        TaxStrategy currentTaxStrategy = taxStrategyManager.getTaxStrategy();
+        TaxStrategy currentTaxStrategy = taxManager.getTaxStrategy();
         for (TaxObserver observer : taxObservers) {
             observer.update(currentTaxStrategy);
         }

@@ -1,16 +1,16 @@
 import AdapterPattern.*;
 import DecoratorPattern.*;
-import FacrotyPattern.PensionFactory;
-import FacrotyPattern.SocialMedicalFactory;
-import FacrotyPattern.SocialFactory;
-import FacrotyPattern.TaxStrategyFactory;
+import FactoryPattern.PensionFactory;
+import FactoryPattern.SocialMedicalFactory;
+import FactoryPattern.SocialFactory;
+import FactoryPattern.TaxFactory;
 import StrategyPattern.TaxStrategy;
 import SingletonPattern.TaxApplication;
 
 class Entrepreneur {
-    protected TaxStrategy pensionTaxStrategy;
-    protected TaxStrategy socialMedicalTaxStrategy;
-    protected TaxStrategy socialTaxStrategy;
+    private TaxStrategy pensionTaxStrategy;
+    private TaxStrategy socialMedicalTaxStrategy;
+    private TaxStrategy socialTaxStrategy;
 
     public Entrepreneur(TaxStrategy pensionTaxStrategy, TaxStrategy socialMedicalTaxStrategy, TaxStrategy socialTaxStrategy) {
         this.pensionTaxStrategy = pensionTaxStrategy;
@@ -28,7 +28,7 @@ class Entrepreneur {
 
 public class Main {
     public static void main(String[] args) {
-        TaxStrategyFactory factory = new PensionFactory();
+        TaxFactory factory = new PensionFactory();
         TaxStrategy pensionTaxStrategy = factory.createTaxStrategy();
         factory = new SocialMedicalFactory();
         TaxStrategy socialMedicalTaxStrategy = factory.createTaxStrategy();
